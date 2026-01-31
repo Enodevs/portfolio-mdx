@@ -29,7 +29,7 @@ export default function Home() {
           />
           <DecryptedText
             text="isiaq abdullah"
-            speed={60}
+            speed={50}
             animateOn="view"
             revealDirection="start"
             useOriginalCharsOnly={false}
