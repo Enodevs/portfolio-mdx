@@ -32,7 +32,6 @@ export default function Home() {
             speed={60}
             animateOn="view"
             revealDirection="start"
-            sequential
             useOriginalCharsOnly={false}
             className="text-4xl font-bold tracking-tight"
           />
