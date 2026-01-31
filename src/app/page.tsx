@@ -1,18 +1,18 @@
 import DecryptedText from "@/components/decrypted-text";
-import { Mail, MapPin, Terminal } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Terminal, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 interface Link {
   name: string;
   href: string;
+  icon: React.ReactNode;
 }
 
 const links: Link[] = [
-  { name: 'GitHub', href: 'https://github.com/Enodevs' },
-  { name: 'LinkedIn', href: 'https://linkedin.com/in/abdullah-isiaq-81a1a3320' },
-  { name: 'Twitter', href: 'https://x.com/abdullahdevs_' },
-  { name: 'Instagram', href: 'https://instagram.com/abdullahdevs_' },
+  { name: 'GitHub', href: 'https://github.com/Enodevs', icon: <Github className="size-4" /> },
+  { name: 'LinkedIn', href: 'https://linkedin.com/in/abdullah-isiaq-81a1a3320', icon: <Linkedin className="size-4" /> },
+  { name: 'Twitter', href: 'https://x.com/abdullahdevs_', icon: <Twitter className="size-4" /> },
 ];
 
 export default function Home() {
@@ -54,7 +54,7 @@ export default function Home() {
             i am a full stack web developer passionate about building high-quality,
             performant web applications. i love solving complex problems, crafting solutions, and
             creating intuitive user experiences. when i'm not coding, you can find
-            me exploring new technologies or contributing to open source.
+            me exploring new technologies and cool websites.
           </p>
         </section>
         <section className="mt-10">
@@ -143,8 +143,9 @@ export default function Home() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-md text-sm font-medium hover:border-blue-500 transition-colors cursor-pointer"
+                className="flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-md text-sm font-medium hover:border-blue-500 transition-colors cursor-pointer"
               >
+                {link.icon}
                 {link.name}
               </Link>
             ))}
