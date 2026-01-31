@@ -1,5 +1,5 @@
 import DecryptedText from "@/components/decrypted-text";
-import { MapPin, Terminal } from "lucide-react";
+import { Mail, MapPin, Terminal } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -148,6 +148,13 @@ export default function Home() {
                 {link.name}
               </Link>
             ))}
+            <Link
+              href="mailto:abdullahdev268@gmail.com"
+              className="flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-md text-sm font-medium hover:border-blue-500 transition-colors cursor-pointer"
+            >
+              <Mail className="size-4" />
+              Email
+            </Link>
           </div>
         </section>
       </main>
