@@ -1,5 +1,12 @@
 import DecryptedText from "@/components/decrypted-text";
-import { Github, Linkedin, Mail, MapPin, Terminal, Twitter } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Terminal,
+  Twitter,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,9 +17,21 @@ interface Link {
 }
 
 const links: Link[] = [
-  { name: 'GitHub', href: 'https://github.com/Enodevs', icon: <Github className="size-4" /> },
-  { name: 'LinkedIn', href: 'https://linkedin.com/in/abdullah-isiaq-81a1a3320', icon: <Linkedin className="size-4" /> },
-  { name: 'Twitter', href: 'https://x.com/abdullahdevs_', icon: <Twitter className="size-4" /> },
+  {
+    name: "GitHub",
+    href: "https://github.com/Enodevs",
+    icon: <Github className="size-4" />,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/abdullah-isiaq-81a1a3320",
+    icon: <Linkedin className="size-4" />,
+  },
+  {
+    name: "Twitter",
+    href: "https://x.com/abdullahdevs_",
+    icon: <Twitter className="size-4" />,
+  },
 ];
 
 export default function Home() {
@@ -50,10 +69,11 @@ export default function Home() {
             </div>
           </div>
           <p className="mt-6 leading-7 text-zinc-300 max-w-2xl">
-            i am a full stack web developer passionate about building high-quality,
-            performant web applications. i love solving complex problems, crafting solutions, and
-            creating intuitive user experiences. when i'm not coding, you can find
-            me exploring new technologies and cool websites.
+            i am a full stack web developer passionate about building
+            high-quality, performant web applications. i love solving complex
+            problems, crafting solutions, and creating intuitive user
+            experiences. when i'm not coding, you can find me exploring new
+            technologies and cool websites.
           </p>
         </section>
         <section className="mt-10">
@@ -65,23 +85,37 @@ export default function Home() {
           <div className="space-y-8">
             <div className="group">
               <div className="flex justify-between items-baseline mb-2">
-                <Link href="https://usebraindump.vercel.app" target="_blank" className="font-bold text-lg hover:text-blue-500">Braindump</Link>
-                <span className="text-zinc-500 text-xs text-right">nov 2025 - present</span>
+                <Link
+                  href="https://usebraindump.vercel.app"
+                  target="_blank"
+                  className="font-bold text-lg hover:text-blue-500"
+                >
+                  Braindump
+                </Link>
+                <span className="text-zinc-500 text-xs text-right">
+                  nov 2025 - present
+                </span>
               </div>
               <p className="text-zinc-500 text-xs mb-2 font-mono">founder</p>
               <p className="text-zinc-400 leading-relaxed text-sm">
-                building a minimal and intuitive platform to store thoughts, tasks, and notes.
+                building a minimal and intuitive platform to store thoughts,
+                tasks, and notes.
               </p>
             </div>
 
             <div className="group">
               <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-bold text-lg hover:text-blue-500 cursor-pointer">Freelance</h3>
-                <span className="text-zinc-500 text-xs text-right">oct 2025 - present</span>
+                <h3 className="font-bold text-lg">Freelance</h3>
+                <span className="text-zinc-500 text-xs text-right">
+                  oct 2025 - present
+                </span>
               </div>
-              <p className="text-zinc-500 text-xs mb-2 font-mono">full-stack developer</p>
+              <p className="text-zinc-500 text-xs mb-2 font-mono">
+                full-stack developer
+              </p>
               <p className="text-zinc-400 leading-relaxed text-sm">
-                building responsive and beautiful websites and web apps for freelance clients.
+                building responsive and beautiful websites and web apps for
+                freelance clients.
               </p>
             </div>
           </div>
@@ -95,21 +129,39 @@ export default function Home() {
           <div className="space-y-8">
             <div className="group">
               <div className="flex justify-between items-baseline mb-2">
-                <Link href="https://lophixboutique.vercel.app" target="_blank" className="font-bold text-lg hover:text-blue-500">Lophix boutique</Link>
+                <Link
+                  href="https://lophixboutique.vercel.app"
+                  target="_blank"
+                  className="font-bold text-lg hover:text-blue-500"
+                >
+                  Lophix boutique
+                </Link>
               </div>
-              <p className="text-zinc-500 text-xs mb-2 font-mono">developer</p>
+              <p className="text-zinc-500 text-xs mb-2 font-mono">
+                frontend developer
+              </p>
               <p className="text-zinc-400 leading-relaxed text-sm">
-                i built an interactive and responsive website with react and tailwind for a client that owns a boutique store
+                i built an interactive and responsive website with react and
+                tailwind for a client that owns a boutique store
               </p>
             </div>
 
             <div className="group">
               <div className="flex justify-between items-baseline mb-2">
-                <Link href="https://pizza-wheels-express.vercel.app" target="_blank" className="font-bold text-lg hover:text-blue-500 cursor-pointer">MyPizzaWheels</Link>
+                <Link
+                  href="https://pizza-wheels-express.vercel.app"
+                  target="_blank"
+                  className="font-bold text-lg hover:text-blue-500 cursor-pointer"
+                >
+                  MyPizzaWheels
+                </Link>
               </div>
-              <p className="text-zinc-500 text-xs mb-2 font-mono">developer</p>
+              <p className="text-zinc-500 text-xs mb-2 font-mono">
+                frontend developer
+              </p>
               <p className="text-zinc-400 leading-relaxed text-sm">
-                i built an interactive and responsive website with react and tailwind for a client that owns a pizza store
+                i built an interactive and responsive website with react and
+                tailwind for a client that owns a pizza store
               </p>
             </div>
           </div>
@@ -121,7 +173,16 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            {['TypeScript', 'Python', 'React', 'Next.js', 'Prisma', 'Drizzle', 'Django', 'FastAPI'].map((tech) => (
+            {[
+              "TypeScript",
+              "Python",
+              "React",
+              "Next.js",
+              "Prisma",
+              "Drizzle",
+              "Django",
+              "FastAPI",
+            ].map((tech) => (
               <span
                 key={tech}
                 className="px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-md text-sm font-medium hover:border-blue-500 transition-colors cursor-default"
