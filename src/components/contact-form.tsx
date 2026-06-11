@@ -10,11 +10,23 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    // Simulate — wire up to your API/email service
     await new Promise((r) => setTimeout(r, 1000));
     setStatus("sent");
     setForm({ name: "", email: "", message: "" });
     setTimeout(() => setStatus("idle"), 4000);
+  };
+
+  const inputStyle: React.CSSProperties = {
+    width: "100%",
+    background: "var(--bg-input)",
+    border: "1px solid var(--border-input)",
+    borderRadius: "6px",
+    padding: "10px 12px",
+    fontSize: "0.875rem",
+    color: "var(--fg)",
+    outline: "none",
+    fontFamily: "var(--font-geist-mono)",
+    transition: "border-color 0.15s",
   };
 
   return (
@@ -28,7 +40,9 @@ export default function ContactForm() {
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             placeholder="Your name"
-            className="w-full bg-[#0f0f0f] border border-[#1f1f1f] rounded-md px-3 py-2.5 text-sm text-white placeholder:text-[#3a3a3a] outline-none focus:border-[#333] transition-colors font-mono"
+            style={inputStyle}
+            onFocus={(e) => { e.currentTarget.style.borderColor = "var(--border-hover)"; }}
+            onBlur={(e)  => { e.currentTarget.style.borderColor = "var(--border-input)"; }}
           />
         </div>
         <div>
@@ -39,10 +53,13 @@ export default function ContactForm() {
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             placeholder="you@example.com"
-            className="w-full bg-[#0f0f0f] border border-[#1f1f1f] rounded-md px-3 py-2.5 text-sm text-white placeholder:text-[#3a3a3a] outline-none focus:border-[#333] transition-colors font-mono"
+            style={inputStyle}
+            onFocus={(e) => { e.currentTarget.style.borderColor = "var(--border-hover)"; }}
+            onBlur={(e)  => { e.currentTarget.style.borderColor = "var(--border-input)"; }}
           />
         </div>
       </div>
+
       <div>
         <label className="section-label block mb-2">Message</label>
         <textarea
@@ -51,13 +68,20 @@ export default function ContactForm() {
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           placeholder="Tell me about your project..."
-          className="w-full bg-[#0f0f0f] border border-[#1f1f1f] rounded-md px-3 py-2.5 text-sm text-white placeholder:text-[#3a3a3a] outline-none focus:border-[#333] transition-colors font-mono resize-none"
+          style={{ ...inputStyle, resize: "none" }}
+          onFocus={(e) => { e.currentTarget.style.borderColor = "var(--border-hover)"; }}
+          onBlur={(e)  => { e.currentTarget.style.borderColor = "var(--border-input)"; }}
         />
       </div>
+
       <button
         type="submit"
         disabled={status === "sending" || status === "sent"}
-        className="flex items-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-md hover:bg-[#e0e0e0] transition-colors disabled:opacity-50 cursor-pointer"
+        className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-md transition-colors disabled:opacity-50 cursor-pointer"
+        style={{
+          background: "var(--fg)",
+          color: "var(--bg)",
+        }}
       >
         {status === "sending" ? (
           "Sending..."

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import Providers from "@/components/providers";
+import ThemeToggle from "@/components/theme-toggle";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -90,46 +92,60 @@ export const metadata: Metadata = {
 
 const navLinks = [
   { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Stack", href: "#stack" },
-  { label: "Contact", href: "#contact" },
+  { label: "Projects",   href: "#projects"   },
+  { label: "Stack",      href: "#stack"       },
+  { label: "Contact",    href: "#contact"     },
 ];
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0c0c0c] text-[#e8e8e8] min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
+        style={{ background: "var(--bg)", color: "var(--fg)" }}
       >
-        {/* ── Nav ──────────────────────────────────────────────────────── */}
-        <header className="sticky top-0 z-50 border-b border-[#151515] bg-[#0c0c0c]/90 backdrop-blur-md">
-          <div className="max-w-2xl mx-auto px-5 h-12 flex items-center justify-between">
-            <Link
-              href="/"
-              className="text-sm font-mono text-[#555] hover:text-[#aaa] transition-colors"
-            >
-              ia<span className="text-white">.</span>
-            </Link>
-            <nav className="flex items-center gap-5">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="text-xs font-mono text-[#444] hover:text-[#ccc] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </header>
+        <Providers>
+          {/* ── Nav ────────────────────────────────────────────────────── */}
+          <header
+            className="sticky top-0 z-50 border-b backdrop-blur-md"
+            style={{ borderColor: "var(--border)", background: "var(--nav-bg)" }}
+          >
+            <div className="max-w-2xl mx-auto px-5 h-12 flex items-center justify-between">
+              {/* Logo */}
+              <Link
+                href="/"
+                className="text-sm font-mono transition-colors"
+                style={{ color: "var(--fg-subtle)" }}
+              >
+                ia<span style={{ color: "var(--logo-dot)" }}>.</span>
+              </Link>
 
-        {/* ── Content ──────────────────────────────────────────────────── */}
-        <div className="max-w-2xl mx-auto px-5 pt-14 pb-8">{children}</div>
+              <div className="flex items-center gap-5">
+                {/* Nav links */}
+                <nav className="hidden sm:flex items-center gap-5">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="text-xs font-mono transition-colors"
+                      style={{ color: "var(--fg-subtle)" }}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </nav>
+
+                {/* Theme toggle */}
+                <ThemeToggle />
+              </div>
+            </div>
+          </header>
+
+          {/* ── Page content ───────────────────────────────────────────── */}
+          <div className="max-w-2xl mx-auto px-5 pt-14 pb-8">{children}</div>
+        </Providers>
       </body>
     </html>
   );
