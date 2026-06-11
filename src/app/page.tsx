@@ -1,4 +1,5 @@
 import ContactForm from "@/components/contact-form";
+import DecryptedText from "@/components/decrypted-text";
 import SectionLabel from "@/components/section-label";
 import StatusBadge from "@/components/status-badge";
 import {
@@ -146,7 +147,13 @@ export default function Home() {
             </div>
             <div>
               <h1 className="text-xl font-semibold tracking-tight text-white">
-                Isiaq Abdullah
+                <DecryptedText
+                  text="Isiaq Abdullah"
+                  speed={50}
+                  animateOn="view"
+                  revealDirection="start"
+                  useOriginalCharsOnly={false}
+                />
               </h1>
               <p className="text-sm text-[#666] font-mono mt-0.5">
                 Full Stack Developer
