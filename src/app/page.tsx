@@ -54,7 +54,7 @@ const experience = [
     period: "Nov 2025 — Present",
     type: "Remote, Part-time",
     description:
-      "Building a minimal and intuitive platform to store thoughts, tasks, and notes. Designed the full product — from architecture to UI — focusing on speed and simplicity.",
+      "Building a minimal and intuitive platform to store thoughts, tasks, and notes. Designed the full product from architecture to UI, focusing on speed and simplicity.",
     tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
     current: true,   // ← highlighted
   },
@@ -106,6 +106,15 @@ const projects = [
     description:
       "A sleek, responsive website for a pizza delivery business with a custom menu and ordering flow.",
     tags: ["React", "Tailwind CSS"],
+    featured: false,
+  },
+  {
+    title: "Zap",
+    href: "https://svelte-tab.pages.dev",
+    github: null,
+    description:
+      "A browser-based invoice generator built with Svelte. Fill in your business details, add line items, preview and save as PDF. No backend, no sign-up required.",
+    tags: ["Svelte", "TypeScript", "CSS"],
     featured: false,
   },
 ];
@@ -410,7 +419,7 @@ export default function Home() {
             </h2>
             <p className="text-sm leading-6 mb-8" style={{ color: "var(--fg-muted)" }}>
               Whether you have a project in mind, want to collaborate, or just
-              want to talk tech — I&apos;d love to hear from you. I reply within
+              want to talk tech, I&apos;d love to hear from you. I reply within
               24 hours.
             </p>
 
