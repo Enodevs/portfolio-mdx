@@ -78,6 +78,16 @@ const projects = [
     description:
       "A minimal, intuitive platform to capture thoughts, tasks, and notes. Built with a focus on speed and a clean, distraction-free experience.",
     tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+    featured: true,
+  },
+  {
+    title: "Mail Digest",
+    href: null,
+    github: "https://github.com/Enodevs/mail_digest",
+    description:
+      "AI-powered email digest that fetches unread Gmail messages, classifies them by importance using Groq's LLaMA LLM, and delivers a sorted daily summary to Telegram. Runs in parallel with graceful model fallback.",
+    tags: ["Python", "Groq LLM", "IMAP", "Telegram API", "GitHub Actions"],
+    featured: true,
   },
   {
     title: "Lophix Boutique",
@@ -86,6 +96,7 @@ const projects = [
     description:
       "Interactive and responsive e-commerce-style website built for a boutique clothing store client.",
     tags: ["React", "Tailwind CSS"],
+    featured: false,
   },
   {
     title: "MyPizzaWheels",
@@ -94,6 +105,7 @@ const projects = [
     description:
       "A sleek, responsive website for a pizza delivery business with a custom menu and ordering flow.",
     tags: ["React", "Tailwind CSS"],
+    featured: false,
   },
 ];
 
@@ -336,19 +348,37 @@ export default function Home() {
                     <Link
                       href={project.github}
                       target="_blank"
-                      className="transition-colors"
-                      style={{ color: "var(--fg-faint)" }}
+                      className="flex items-center gap-1 text-xs font-mono transition-all px-2 py-0.5 rounded"
+                      style={
+                        project.featured
+                          ? {
+                              color: "#4ade80",
+                              background: "rgba(34,197,94,0.08)",
+                              border: "1px solid rgba(34,197,94,0.2)",
+                            }
+                          : { color: "var(--fg-subtle)" }
+                      }
                       aria-label={`${project.title} on GitHub`}
                     >
-                      <Github className="size-4" />
+                      <Github className="size-3" />
+                      GitHub
+                      <ArrowUpRight className="size-3" />
                     </Link>
                   )}
                   {project.href && (
                     <Link
                       href={project.href}
                       target="_blank"
-                      className="flex items-center gap-1 text-xs font-mono transition-colors"
-                      style={{ color: "var(--fg-subtle)" }}
+                      className="flex items-center gap-1 text-xs font-mono transition-all px-2 py-0.5 rounded"
+                      style={
+                        project.featured
+                          ? {
+                              color: "#4ade80",
+                              background: "rgba(34,197,94,0.08)",
+                              border: "1px solid rgba(34,197,94,0.2)",
+                            }
+                          : { color: "var(--fg-subtle)" }
+                      }
                     >
                       Visit
                       <ArrowUpRight className="size-3" />
