@@ -1,5 +1,6 @@
 import ContactForm from "@/components/contact-form";
 import DecryptedText from "@/components/decrypted-text";
+import ProjectLink from "@/components/project-link";
 import SectionLabel from "@/components/section-label";
 import StatusBadge from "@/components/status-badge";
 import {
@@ -85,7 +86,7 @@ const projects = [
     href: null,
     github: "https://github.com/Enodevs/mail_digest",
     description:
-      "AI-powered email digest that fetches unread Gmail messages, classifies them by importance using Groq's LLaMA LLM, and delivers a sorted daily summary to Telegram. Runs in parallel with graceful model fallback.",
+      "AI-powered email digest that fetches unread Gmail messages, classifies them by importance using Groq's llama LLM, and delivers a sorted daily summary to Telegram. Runs in parallel with graceful model fallback.",
     tags: ["Python", "Groq LLM", "IMAP", "Telegram API", "GitHub Actions"],
     featured: true,
   },
@@ -345,44 +346,10 @@ export default function Home() {
                 </h3>
                 <div className="flex items-center gap-2 shrink-0">
                   {project.github && (
-                    <Link
-                      href={project.github}
-                      target="_blank"
-                      className="flex items-center gap-1 text-xs font-mono transition-all px-2 py-0.5 rounded"
-                      style={
-                        project.featured
-                          ? {
-                              color: "#4ade80",
-                              background: "rgba(34,197,94,0.08)",
-                              border: "1px solid rgba(34,197,94,0.2)",
-                            }
-                          : { color: "var(--fg-subtle)" }
-                      }
-                      aria-label={`${project.title} on GitHub`}
-                    >
-                      <Github className="size-3" />
-                      GitHub
-                      <ArrowUpRight className="size-3" />
-                    </Link>
+                    <ProjectLink href={project.github} label="GitHub" />
                   )}
                   {project.href && (
-                    <Link
-                      href={project.href}
-                      target="_blank"
-                      className="flex items-center gap-1 text-xs font-mono transition-all px-2 py-0.5 rounded"
-                      style={
-                        project.featured
-                          ? {
-                              color: "#4ade80",
-                              background: "rgba(34,197,94,0.08)",
-                              border: "1px solid rgba(34,197,94,0.2)",
-                            }
-                          : { color: "var(--fg-subtle)" }
-                      }
-                    >
-                      Visit
-                      <ArrowUpRight className="size-3" />
-                    </Link>
+                    <ProjectLink href={project.href} label="Visit" />
                   )}
                 </div>
               </div>
