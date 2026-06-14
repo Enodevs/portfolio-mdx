@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowUpRight, Github } from "lucide-react";
+import { useTheme } from "next-themes";
 
 interface ProjectLinkProps {
   href: string;
@@ -11,6 +12,19 @@ interface ProjectLinkProps {
 
 export default function ProjectLink({ href, label }: ProjectLinkProps) {
   const [hovered, setHovered] = useState(false);
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
+  // Light mode uses a more restrained palette so text stays readable
+  const idle = isDark
+    ? { bg: "rgba(34,197,94,0.07)", border: "rgba(34,197,94,0.2)",  color: "#4ade80" }
+    : { bg: "rgba(22,163,74,0.08)",  border: "rgba(22,163,74,0.3)",  color: "#15803d" };
+
+  const active = isDark
+    ? { bg: "rgba(34,197,94,0.14)", border: "rgba(34,197,94,0.5)",  color: "#86efac", shadow: "0 4px 12px rgba(34,197,94,0.15)" }
+    : { bg: "rgba(22,163,74,0.10)",  border: "rgba(22,163,74,0.45)", color: "#15803d", shadow: "0 3px 8px rgba(22,163,74,0.12)" };
+
+  const s = hovered ? active : idle;
 
   return (
     <Link
@@ -22,11 +36,11 @@ export default function ProjectLink({ href, label }: ProjectLinkProps) {
       onMouseLeave={() => setHovered(false)}
       className="flex items-center gap-1 text-xs font-mono rounded px-2 py-0.5 select-none"
       style={{
-        border: `1px solid ${hovered ? "rgba(34,197,94,0.5)" : "rgba(34,197,94,0.2)"}`,
-        background: hovered ? "rgba(34,197,94,0.14)" : "rgba(34,197,94,0.07)",
-        color: hovered ? "#86efac" : "#4ade80",
+        border: `1px solid ${s.border}`,
+        background: s.bg,
+        color: s.color,
         transform: hovered ? "translateY(-1px)" : "translateY(0)",
-        boxShadow: hovered ? "0 4px 12px rgba(34,197,94,0.15)" : "none",
+        boxShadow: hovered ? s.shadow : "none",
         transition: "all 0.15s ease",
       }}
     >
