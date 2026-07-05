@@ -20,21 +20,21 @@ export default function ContactForm() {
         headers: { Accept: "application/json" },
       });
 
-      console.log("Formspree response status:", res.status);
+      // console.log("Formspree response status:", res.status);
       const data = await res.json();
-      console.log("Formspree response data:", data);
+      // console.log("Formspree response data:", data);
 
       if (res.ok) {
         setStatus("sent");
         form.reset();
         setTimeout(() => setStatus("idle"), 4000);
       } else {
-        console.error("Formspree error:", data);
+        // console.error("Formspree error:", data);
         setStatus("error");
         setTimeout(() => setStatus("idle"), 3000);
       }
     } catch (err) {
-      console.error("Form submission error:", err);
+      // console.error("Form submission error:", err);
       setStatus("error");
       setTimeout(() => setStatus("idle"), 3000);
     }
