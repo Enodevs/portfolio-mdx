@@ -22,8 +22,8 @@ export default function ProjectLink({ href, label }: ProjectLinkProps) {
 
   // Light mode uses a more restrained palette so text stays readable
   const idle = isDark
-    ? { bg: "rgba(34,197,94,0.07)", border: "rgba(34,197,94,0.2)",  color: "#4ade80" }
-    : { bg: "rgba(22,163,74,0.08)",  border: "rgba(22,163,74,0.3)",  color: "#15803d" };
+    ? { bg: "rgba(34,197,94,0.07)", border: "rgba(34,197,94,0.2)",  color: "#4ade80", shadow: "none" }
+    : { bg: "rgba(22,163,74,0.08)",  border: "rgba(22,163,74,0.3)",  color: "#15803d", shadow: "none" };
 
   const active = isDark
     ? { bg: "rgba(34,197,94,0.14)", border: "rgba(34,197,94,0.5)",  color: "#86efac", shadow: "0 4px 12px rgba(34,197,94,0.15)" }
@@ -45,7 +45,7 @@ export default function ProjectLink({ href, label }: ProjectLinkProps) {
         background: s.bg,
         color: s.color,
         transform: hovered ? "translateY(-1px)" : "translateY(0)",
-        boxShadow: hovered ? s.shadow : "none",
+        boxShadow: s.shadow,
         transition: "all 0.15s ease",
       }}
     >
