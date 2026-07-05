@@ -4,16 +4,40 @@ import { useState } from "react";
 import { Send } from "lucide-react";
 
 export default function ContactForm() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
-    await new Promise((r) => setTimeout(r, 1000));
-    setStatus("sent");
-    setForm({ name: "", email: "", message: "" });
-    setTimeout(() => setStatus("idle"), 4000);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xrewjrqd", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      console.log("Formspree response status:", res.status);
+      const data = await res.json();
+      console.log("Formspree response data:", data);
+
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+        setTimeout(() => setStatus("idle"), 4000);
+      } else {
+        console.error("Formspree error:", data);
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 3000);
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+    }
   };
 
   const inputStyle: React.CSSProperties = {
@@ -36,9 +60,8 @@ export default function ContactForm() {
           <label className="section-label block mb-2">Name</label>
           <input
             type="text"
+            name="name"
             required
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
             placeholder="Your name"
             style={inputStyle}
             onFocus={(e) => { e.currentTarget.style.borderColor = "var(--border-hover)"; }}
@@ -49,9 +72,8 @@ export default function ContactForm() {
           <label className="section-label block mb-2">Email</label>
           <input
             type="email"
+            name="email"
             required
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
             placeholder="you@example.com"
             style={inputStyle}
             onFocus={(e) => { e.currentTarget.style.borderColor = "var(--border-hover)"; }}
@@ -63,10 +85,9 @@ export default function ContactForm() {
       <div>
         <label className="section-label block mb-2">Message</label>
         <textarea
+          name="message"
           required
           rows={5}
-          value={form.message}
-          onChange={(e) => setForm({ ...form, message: e.target.value })}
           placeholder="Tell me about your project..."
           style={{ ...inputStyle, resize: "none" }}
           onFocus={(e) => { e.currentTarget.style.borderColor = "var(--border-hover)"; }}
@@ -87,6 +108,8 @@ export default function ContactForm() {
           "Sending..."
         ) : status === "sent" ? (
           "Message sent ✓"
+        ) : status === "error" ? (
+          "Failed, try again"
         ) : (
           <>
             <Send className="size-3.5" />

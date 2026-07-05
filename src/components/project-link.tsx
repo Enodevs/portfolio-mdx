@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowUpRight, Github } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -12,8 +12,13 @@ interface ProjectLinkProps {
 
 export default function ProjectLink({ href, label }: ProjectLinkProps) {
   const [hovered, setHovered] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
+
+  useEffect(() => setMounted(true), []);
+
+  // Default to dark until mounted to avoid hydration mismatch
+  const isDark = !mounted || resolvedTheme === "dark";
 
   // Light mode uses a more restrained palette so text stays readable
   const idle = isDark
