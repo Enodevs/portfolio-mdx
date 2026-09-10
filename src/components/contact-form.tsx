@@ -21,7 +21,7 @@ export default function ContactForm() {
       });
 
       // console.log("Formspree response status:", res.status);
-      const data = await res.json();
+      // const data = await res.json();
       // console.log("Formspree response data:", data);
 
       if (res.ok) {
