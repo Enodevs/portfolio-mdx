@@ -55,7 +55,7 @@ const experience = [
     type: "Remote, Part-time",
     description:
       "Building a minimal and intuitive platform to store thoughts, tasks, and notes. Designed the full product from architecture to UI, focusing on speed and simplicity.",
-    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+    tags: ["Next.js", "TypeScript", "Convex"],
     current: true,   // ← highlighted
   },
   {
