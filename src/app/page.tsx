@@ -86,7 +86,7 @@ const projects = [
     href: null,
     github: "https://github.com/Enodevs/mail_digest",
     description:
-      "AI-powered email digest that fetches unread Gmail messages, classifies them by importance using Groq's llama LLM, and delivers a sorted daily summary to Telegram. Runs in parallel with graceful model fallback.",
+      "AI-powered email digest that fetches unread Gmail messages, classifies them by importance using Groq's llama LLM, and delivers a sorted daily summary to Telegram. Runs in parallel with graceful model fallback. Soon to be turned into a fully functional telegram personal assistant.",
     tags: ["Python", "Groq LLM", "IMAP", "Telegram API", "GitHub Actions"],
     featured: true,
   },
