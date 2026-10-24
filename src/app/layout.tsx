@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/a-logo.png" }],
     shortcut: ["/a-logo.png"],
   },
-  alternates: { canonical: "/" },
+  alternates: { canonical: "https://abdullahdev.cv" },
   openGraph: {
     type: "website",
     locale: "en_US",
