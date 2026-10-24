@@ -3,7 +3,5 @@ interface SectionLabelProps {
 }
 
 export default function SectionLabel({ children }: SectionLabelProps) {
-  return (
-    <p className="section-label mb-5">{children}</p>
-  );
+  return <p className="section-label mb-5">{children}</p>;
 }

@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { Send } from "lucide-react";
+import { useState } from "react";
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,21 +22,15 @@ export default function ContactForm() {
         headers: { Accept: "application/json" },
       });
 
-      // console.log("Formspree response status:", res.status);
-      // const data = await res.json();
-      // console.log("Formspree response data:", data);
-
       if (res.ok) {
         setStatus("sent");
         form.reset();
         setTimeout(() => setStatus("idle"), 4000);
       } else {
-        // console.error("Formspree error:", data);
         setStatus("error");
         setTimeout(() => setStatus("idle"), 3000);
       }
-    } catch (err) {
-      // console.error("Form submission error:", err);
+    } catch {
       setStatus("error");
       setTimeout(() => setStatus("idle"), 3000);
     }
@@ -57,41 +53,62 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="section-label block mb-2">Name</label>
+          <label htmlFor="contact-name" className="section-label block mb-2">
+            Name
+          </label>
           <input
+            id="contact-name"
             type="text"
             name="name"
             required
             placeholder="Your name"
             style={inputStyle}
-            onFocus={(e) => { e.currentTarget.style.borderColor = "var(--border-hover)"; }}
-            onBlur={(e)  => { e.currentTarget.style.borderColor = "var(--border-input)"; }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = "var(--border-hover)";
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = "var(--border-input)";
+            }}
           />
         </div>
         <div>
-          <label className="section-label block mb-2">Email</label>
+          <label htmlFor="contact-email" className="section-label block mb-2">
+            Email
+          </label>
           <input
+            id="contact-email"
             type="email"
             name="email"
             required
             placeholder="you@example.com"
             style={inputStyle}
-            onFocus={(e) => { e.currentTarget.style.borderColor = "var(--border-hover)"; }}
-            onBlur={(e)  => { e.currentTarget.style.borderColor = "var(--border-input)"; }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = "var(--border-hover)";
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = "var(--border-input)";
+            }}
           />
         </div>
       </div>
 
       <div>
-        <label className="section-label block mb-2">Message</label>
+        <label htmlFor="contact-message" className="section-label block mb-2">
+          Message
+        </label>
         <textarea
+          id="contact-message"
           name="message"
           required
           rows={5}
           placeholder="Tell me about your project..."
           style={{ ...inputStyle, resize: "none" }}
-          onFocus={(e) => { e.currentTarget.style.borderColor = "var(--border-hover)"; }}
-          onBlur={(e)  => { e.currentTarget.style.borderColor = "var(--border-input)"; }}
+          onFocus={(e) => {
+            e.currentTarget.style.borderColor = "var(--border-hover)";
+          }}
+          onBlur={(e) => {
+            e.currentTarget.style.borderColor = "var(--border-input)";
+          }}
         />
       </div>
 

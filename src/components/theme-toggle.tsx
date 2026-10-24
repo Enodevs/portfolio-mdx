@@ -1,13 +1,13 @@
 "use client";
 
+import { Monitor, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Moon, Sun, Monitor } from "lucide-react";
 
 const options = [
-  { value: "light", icon: Sun,     label: "Light"  },
+  { value: "light", icon: Sun, label: "Light" },
   { value: "system", icon: Monitor, label: "System" },
-  { value: "dark",  icon: Moon,    label: "Dark"   },
+  { value: "dark", icon: Moon, label: "Dark" },
 ] as const;
 
 export default function ThemeToggle() {
@@ -19,12 +19,11 @@ export default function ThemeToggle() {
   if (!mounted) return <div className="w-[88px] h-7" />;
 
   return (
-    <div
-      className="flex items-center rounded-md border p-0.5 gap-0.5"
+    <fieldset
+      className="flex items-center rounded-md border p-0.5 gap-0.5 min-w-0"
       style={{ borderColor: "var(--border)", background: "var(--bg-card)" }}
-      role="group"
-      aria-label="Theme switcher"
     >
+      <legend className="sr-only">Theme switcher</legend>
       {options.map(({ value, icon: Icon, label }) => {
         const active = theme === value;
         return (
@@ -44,6 +43,6 @@ export default function ThemeToggle() {
           </button>
         );
       })}
-    </div>
+    </fieldset>
   );
 }

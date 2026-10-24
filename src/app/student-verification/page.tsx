@@ -40,10 +40,9 @@ export default function StudentVerification() {
             className="text-[15px] leading-7 max-w-xl"
             style={{ color: "var(--fg-muted)" }}
           >
-            I am currently enrolled as a student, but my school does not
-            provide student email addresses. This page explains why I am
-            using my personal email for my RevenueCat Shipaton Next Gen
-            registration.
+            I am currently enrolled as a student, but my school does not provide
+            student email addresses. This page explains why I am using my
+            personal email for my RevenueCat Shipaton Next Gen registration.
           </p>
         </section>
 
@@ -72,9 +71,7 @@ export default function StudentVerification() {
                   Institution
                 </p>
 
-                <p className="text-sm font-medium">
-                  TAKBIR MODEL COLLEGE
-                </p>
+                <p className="text-sm font-medium">TAKBIR MODEL COLLEGE</p>
               </div>
             </div>
           </div>
@@ -119,9 +116,7 @@ export default function StudentVerification() {
           }}
         >
           <div className="flex gap-3">
-            <CheckCircle2
-              className="size-4 mt-0.5 shrink-0 text-emerald-500"
-            />
+            <CheckCircle2 className="size-4 mt-0.5 shrink-0 text-emerald-500" />
 
             <div>
               <h2 className="text-sm font-medium mb-2">
@@ -134,17 +129,16 @@ export default function StudentVerification() {
               >
                 My school does not issue student email addresses and does not
                 have an official school website. Because an academic email is
-                unavailable, I am using my personal email address and
-                providing this page as additional context for the verification
-                process.
+                unavailable, I am using my personal email address and providing
+                this page as additional context for the verification process.
               </p>
 
               <p
                 className="text-sm leading-6 mt-3"
                 style={{ color: "var(--fg-muted)" }}
               >
-                If additional confirmation of my student status is required,
-                I am happy to provide appropriate documentation through the
+                If additional confirmation of my student status is required, I
+                am happy to provide appropriate documentation through the
                 official verification process.
               </p>
             </div>
@@ -152,7 +146,10 @@ export default function StudentVerification() {
         </section>
 
         {/* Footer */}
-        <div className="mt-10 pt-6 border-t" style={{ borderColor: "var(--border)" }}>
+        <div
+          className="mt-10 pt-6 border-t"
+          style={{ borderColor: "var(--border)" }}
+        >
           <p
             className="text-xs font-mono leading-5"
             style={{ color: "var(--fg-faint)" }}

@@ -1,8 +1,3 @@
-import ContactForm from "@/components/contact-form";
-import DecryptedText from "@/components/decrypted-text";
-import ProjectLink from "@/components/project-link";
-import SectionLabel from "@/components/section-label";
-import StatusBadge from "@/components/status-badge";
 import {
   ArrowUpRight,
   Github,
@@ -13,37 +8,46 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ContactForm from "@/components/contact-form";
+import DecryptedText from "@/components/decrypted-text";
+import ProjectLink from "@/components/project-link";
+import SectionLabel from "@/components/section-label";
+import StatusBadge from "@/components/status-badge";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 const techStack = [
   { name: "TypeScript", icon: "ts" },
-  { name: "Python",     icon: "py" },
-  { name: "React",      icon: "react" },
-  { name: "Next.js",    icon: "next" },
+  { name: "Python", icon: "py" },
+  { name: "React", icon: "react" },
+  { name: "Next.js", icon: "next" },
   { name: "Tailwind CSS", icon: "tw" },
-  { name: "Prisma",     icon: "prisma" },
-  { name: "Drizzle",    icon: "drizzle" },
-  { name: "Django",     icon: "django" },
-  { name: "FastAPI",    icon: "fastapi" },
+  { name: "Prisma", icon: "prisma" },
+  { name: "Drizzle", icon: "drizzle" },
+  { name: "Django", icon: "django" },
+  { name: "FastAPI", icon: "fastapi" },
   { name: "PostgreSQL", icon: "pg" },
-  { name: "Node.js",    icon: "node" },
-  { name: "Git",        icon: "git" },
+  { name: "Node.js", icon: "node" },
+  { name: "Git", icon: "git" },
 ];
 
 const techIcons: Record<string, string> = {
-  ts:      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-  py:      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  react:   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  next:    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-  tw:      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
-  prisma:  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-  drizzle: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
-  django:  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-  fastapi: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
-  pg:      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-  node:    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  git:     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  ts: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  py: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  react:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  next: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  tw: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+  prisma:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+  drizzle: "https://cdn.simpleicons.org/drizzle",
+  django:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+  fastapi:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+  pg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  node: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
 };
 
 const experience = [
@@ -56,7 +60,7 @@ const experience = [
     description:
       "Building a minimal and intuitive platform to store thoughts, tasks, and notes. Designed the full product from architecture to UI, focusing on speed and simplicity.",
     tags: ["Next.js", "TypeScript", "Convex"],
-    current: true,   // ← highlighted
+    current: true, // ← highlighted
   },
   {
     role: "Full-Stack Developer",
@@ -78,8 +82,7 @@ const projects = [
     github: null,
     description:
       "A minimal, intuitive platform to capture thoughts, tasks, and notes. Built with a focus on speed and a clean, distraction-free experience.",
-    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-    featured: true,
+    tags: ["Next.js", "TypeScript", "Convex"],
   },
   {
     title: "Mail Digest",
@@ -88,7 +91,6 @@ const projects = [
     description:
       "AI-powered email digest that fetches unread Gmail messages, classifies them by importance using Groq's llama LLM, and delivers a sorted daily summary to Telegram. Runs in parallel with graceful model fallback. Soon to be turned into a fully functional telegram personal assistant.",
     tags: ["Python", "Groq LLM", "IMAP", "Telegram API", "GitHub Actions"],
-    featured: true,
   },
   {
     title: "Lophix Boutique",
@@ -97,7 +99,6 @@ const projects = [
     description:
       "Interactive and responsive e-commerce-style website built for a boutique clothing store client.",
     tags: ["React", "Tailwind CSS"],
-    featured: false,
   },
   {
     title: "MyPizzaWheels",
@@ -106,7 +107,6 @@ const projects = [
     description:
       "A sleek, responsive website for a pizza delivery business with a custom menu and ordering flow.",
     tags: ["React", "Tailwind CSS"],
-    featured: false,
   },
   {
     title: "Zap",
@@ -115,15 +115,30 @@ const projects = [
     description:
       "A browser-based invoice generator built with Svelte. Fill in your business details, add line items, preview and save as PDF. No backend, no sign-up required.",
     tags: ["Svelte", "TypeScript", "CSS"],
-    featured: false,
   },
 ];
 
 const socialLinks = [
-  { label: "X (Twitter)", href: "https://x.com/abdullahdevs_",                    icon: <Twitter className="size-3.5" /> },
-  { label: "GitHub",      href: "https://github.com/Enodevs",                     icon: <Github  className="size-3.5" /> },
-  { label: "LinkedIn",    href: "https://linkedin.com/in/abdullah-isiaq-81a1a3320", icon: <Linkedin className="size-3.5" /> },
-  { label: "Email",       href: "mailto:abdullahdev268@gmail.com",                 icon: <Mail    className="size-3.5" /> },
+  {
+    label: "X (Twitter)",
+    href: "https://x.com/abdullahdevs_",
+    icon: <Twitter className="size-3.5" />,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/Enodevs",
+    icon: <Github className="size-3.5" />,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/abdullah-isiaq-81a1a3320",
+    icon: <Linkedin className="size-3.5" />,
+  },
+  {
+    label: "Email",
+    href: "mailto:abdullahdev268@gmail.com",
+    icon: <Mail className="size-3.5" />,
+  },
 ];
 
 // ─── Divider ─────────────────────────────────────────────────────────────────
@@ -140,7 +155,6 @@ function Divider() {
 export default function Home() {
   return (
     <main className="font-sans" style={{ color: "var(--fg)" }}>
-
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="animate-fade-in-up">
         <div className="flex items-start justify-between gap-6 flex-wrap">
@@ -168,7 +182,10 @@ export default function Home() {
                   useOriginalCharsOnly={false}
                 />
               </h1>
-              <p className="text-sm font-mono mt-0.5" style={{ color: "var(--fg-subtle)" }}>
+              <p
+                className="text-sm font-mono mt-0.5"
+                style={{ color: "var(--fg-subtle)" }}
+              >
                 Full Stack Developer
               </p>
             </div>
@@ -177,19 +194,28 @@ export default function Home() {
         </div>
 
         {/* Meta row */}
-        <div className="mt-6 flex flex-wrap gap-x-5 gap-y-1.5 text-xs font-mono" style={{ color: "var(--fg-faint)" }}>
+        <div
+          className="mt-6 flex flex-wrap gap-x-5 gap-y-1.5 text-xs font-mono"
+          style={{ color: "var(--fg-faint)" }}
+        >
           <span className="flex items-center gap-1.5">
             <MapPin className="size-3" />
             Ogun State, Nigeria
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="size-1.5 rounded-full" style={{ background: "var(--fg-faint)" }} />
+            <span
+              className="size-1.5 rounded-full"
+              style={{ background: "var(--fg-faint)" }}
+            />
             abdullahdev268@gmail.com
           </span>
         </div>
 
         {/* Bio */}
-        <p className="mt-6 text-[15px] leading-7 max-w-xl" style={{ color: "var(--fg-muted)" }}>
+        <p
+          className="mt-6 text-[15px] leading-7 max-w-xl"
+          style={{ color: "var(--fg-muted)" }}
+        >
           I build full-stack web products end-to-end, obsessing over small
           details that make software feel right. Passionate about clean
           architecture, intuitive UX, and performant systems. When I&apos;m not
@@ -212,7 +238,7 @@ export default function Home() {
               }}
             >
               {s.icon}
-              {s.label}
+              <span className="translate-y-[0.5px]">{s.label}</span>
             </Link>
           ))}
         </div>
@@ -226,8 +252,10 @@ export default function Home() {
 
         <div className="space-y-0">
           {experience.map((job, i) => (
-            <div key={i} className="group relative flex gap-6 pb-12 last:pb-0">
-
+            <div
+              key={job.company}
+              className="group relative flex gap-6 pb-12 last:pb-0"
+            >
               {/* Timeline dot + line */}
               <div className="flex flex-col items-center">
                 <div
@@ -278,35 +306,54 @@ export default function Home() {
                     >
                       {job.role}
                     </span>
-                    <span className="mx-2 text-sm" style={{ color: "var(--fg-subtle)" }}>·</span>
+                    <span
+                      className="mx-2 text-sm"
+                      style={{ color: "var(--fg-subtle)" }}
+                    >
+                      ·
+                    </span>
                     {job.href ? (
                       <Link
                         href={job.href}
                         target="_blank"
                         className="text-sm inline-flex items-center gap-0.5 transition-colors hover:underline"
-                        style={{ color: job.current ? "#4ade80" : "var(--fg-muted)" }}
+                        style={{
+                          color: job.current ? "#4ade80" : "var(--fg-muted)",
+                        }}
                       >
                         {job.company}
                         <ArrowUpRight className="size-3 ml-0.5" />
                       </Link>
                     ) : (
-                      <span className="text-sm" style={{ color: "var(--fg-muted)" }}>
+                      <span
+                        className="text-sm"
+                        style={{ color: "var(--fg-muted)" }}
+                      >
                         {job.company}
                       </span>
                     )}
                   </div>
-                  <span className="text-xs font-mono shrink-0" style={{ color: "var(--fg-faint)" }}>
+                  <span
+                    className="text-xs font-mono shrink-0"
+                    style={{ color: "var(--fg-faint)" }}
+                  >
                     {job.period}
                   </span>
                 </div>
 
                 {/* Type */}
-                <p className="text-xs font-mono mb-3" style={{ color: "var(--fg-faint)" }}>
+                <p
+                  className="text-xs font-mono mb-3"
+                  style={{ color: "var(--fg-faint)" }}
+                >
                   {job.type}
                 </p>
 
                 {/* Description */}
-                <p className="text-sm leading-6 mb-4" style={{ color: "var(--fg-muted)" }}>
+                <p
+                  className="text-sm leading-6 mb-4"
+                  style={{ color: "var(--fg-muted)" }}
+                >
                   {job.description}
                 </p>
 
@@ -343,14 +390,20 @@ export default function Home() {
         <SectionLabel>Featured Projects</SectionLabel>
 
         <div className="space-y-4">
-          {projects.map((project, i) => (
+          {projects.map((project) => (
             <div
-              key={i}
+              key={project.title}
               className="group p-5 rounded-lg border hover-card transition-all"
-              style={{ borderColor: "var(--border)", background: "var(--bg-card)" }}
+              style={{
+                borderColor: "var(--border)",
+                background: "var(--bg-card)",
+              }}
             >
               <div className="flex items-start justify-between gap-4 mb-3">
-                <h3 className="font-medium text-[15px]" style={{ color: "var(--fg)" }}>
+                <h3
+                  className="font-medium text-[15px]"
+                  style={{ color: "var(--fg)" }}
+                >
                   {project.title}
                 </h3>
                 <div className="flex items-center gap-2 shrink-0">
@@ -362,12 +415,17 @@ export default function Home() {
                   )}
                 </div>
               </div>
-              <p className="text-sm leading-6 mb-4" style={{ color: "var(--fg-muted)" }}>
+              <p
+                className="text-sm leading-6 mb-4"
+                style={{ color: "var(--fg-muted)" }}
+              >
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="tech-tag">{tag}</span>
+                  <span key={tag} className="tech-tag">
+                    {tag}
+                  </span>
                 ))}
               </div>
             </div>
@@ -386,9 +444,12 @@ export default function Home() {
             <div
               key={tech.name}
               className="flex flex-col items-center gap-2.5 p-3 rounded-md border hover-card cursor-default group transition-all"
-              style={{ borderColor: "var(--border)", background: "var(--bg-card)" }}
+              style={{
+                borderColor: "var(--border)",
+                background: "var(--bg-card)",
+              }}
             >
-              {/* biome-ignore lint/a11y/useAltText: decorative */}
+              {/* biome-ignore lint/performance/noImgElement: remote tech logos */}
               <img
                 src={techIcons[tech.icon]}
                 alt={tech.name}
@@ -414,10 +475,16 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Left — info */}
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight mb-3" style={{ color: "var(--fg)" }}>
+            <h2
+              className="text-2xl font-semibold tracking-tight mb-3"
+              style={{ color: "var(--fg)" }}
+            >
               Get in Touch
             </h2>
-            <p className="text-sm leading-6 mb-8" style={{ color: "var(--fg-muted)" }}>
+            <p
+              className="text-sm leading-6 mb-8"
+              style={{ color: "var(--fg-muted)" }}
+            >
               Whether you have a project in mind, want to collaborate, or just
               want to talk tech, I&apos;d love to hear from you. I reply within
               24 hours.
@@ -426,22 +493,22 @@ export default function Home() {
             <div className="space-y-3">
               {[
                 {
-                  icon: <Mail    className="size-4" />,
+                  icon: <Mail className="size-4" />,
                   value: "abdullahdev268@gmail.com",
-                  href:  "mailto:abdullahdev268@gmail.com",
-                  sub:   "Quick inquiries & questions",
+                  href: "mailto:abdullahdev268@gmail.com",
+                  sub: "Quick inquiries & questions",
                 },
                 {
                   icon: <Twitter className="size-4" />,
                   value: "@abdullahdevs_",
-                  href:  "https://x.com/abdullahdevs_",
-                  sub:   "Follow for updates",
+                  href: "https://x.com/abdullahdevs_",
+                  sub: "Follow for updates",
                 },
                 {
-                  icon: <Github  className="size-4" />,
+                  icon: <Github className="size-4" />,
                   value: "Enodevs",
-                  href:  "https://github.com/Enodevs",
-                  sub:   "Check out my work",
+                  href: "https://github.com/Enodevs",
+                  sub: "Check out my work",
                 },
               ].map((item) => (
                 <Link
@@ -450,25 +517,40 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3.5 p-3.5 rounded-md border hover-card group transition-all"
-                  style={{ borderColor: "var(--border)", background: "var(--bg-card)" }}
+                  style={{
+                    borderColor: "var(--border)",
+                    background: "var(--bg-card)",
+                  }}
                 >
                   <span style={{ color: "var(--fg-faint)" }}>{item.icon}</span>
                   <div className="min-w-0">
-                    <p className="text-sm font-medium transition-colors" style={{ color: "var(--fg-muted)" }}>
+                    <p
+                      className="text-sm font-medium transition-colors"
+                      style={{ color: "var(--fg-muted)" }}
+                    >
                       {item.value}
                     </p>
-                    <p className="text-xs font-mono truncate" style={{ color: "var(--fg-faint)" }}>
+                    <p
+                      className="text-xs font-mono truncate"
+                      style={{ color: "var(--fg-faint)" }}
+                    >
                       {item.sub}
                     </p>
                   </div>
-                  <ArrowUpRight className="size-3.5 ml-auto shrink-0 transition-colors" style={{ color: "var(--fg-faint)" }} />
+                  <ArrowUpRight
+                    className="size-3.5 ml-auto shrink-0 transition-colors"
+                    style={{ color: "var(--fg-faint)" }}
+                  />
                 </Link>
               ))}
             </div>
 
             <div className="mt-6 flex items-center gap-2">
               <span className="size-1.5 rounded-full bg-emerald-500 status-dot" />
-              <span className="text-xs font-mono" style={{ color: "var(--fg-subtle)" }}>
+              <span
+                className="text-xs font-mono"
+                style={{ color: "var(--fg-subtle)" }}
+              >
                 Open to remote, freelance &amp; full-time
               </span>
             </div>
@@ -476,10 +558,16 @@ export default function Home() {
 
           {/* Right — form */}
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight mb-3" style={{ color: "var(--fg)" }}>
+            <h2
+              className="text-2xl font-semibold tracking-tight mb-3"
+              style={{ color: "var(--fg)" }}
+            >
               Send a Message
             </h2>
-            <p className="text-sm leading-6 mb-8" style={{ color: "var(--fg-muted)" }}>
+            <p
+              className="text-sm leading-6 mb-8"
+              style={{ color: "var(--fg-muted)" }}
+            >
               Prefer to write? Fill out the form and I&apos;ll get back to you
               within 24 hours.
             </p>
@@ -517,7 +605,10 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-            <p className="text-xs font-mono" style={{ color: "var(--footer-copy)" }}>
+            <p
+              className="text-xs font-mono"
+              style={{ color: "var(--footer-copy)" }}
+            >
               © 2026 Isiaq Abdullah
             </p>
           </div>

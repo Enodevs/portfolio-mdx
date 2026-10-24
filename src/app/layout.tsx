@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Isiaq Abdullah", url: "https://x.com/abdullahdevs_" }],
   creator: "Isiaq Abdullah",
-  metadataBase: new URL("https://abdullahdevs.vercel.app"),
+  metadataBase: new URL("https://abdullahdev.cv"),
   icons: {
     icon: [
       { url: "/a-logo.png" },
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/abdullah.jpg",
-        width: 1200,
-        height: 630,
+        width: 1080,
+        height: 1080,
         alt: "Isiaq Abdullah — Full Stack Developer",
       },
     ],
@@ -92,9 +92,9 @@ export const metadata: Metadata = {
 
 const navLinks = [
   { label: "Experience", href: "#experience" },
-  { label: "Projects",   href: "#projects"   },
-  { label: "Stack",      href: "#stack"       },
-  { label: "Contact",    href: "#contact"     },
+  { label: "Projects", href: "#projects" },
+  { label: "Stack", href: "#stack" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function RootLayout({
@@ -110,7 +110,10 @@ export default function RootLayout({
           {/* ── Nav ────────────────────────────────────────────────────── */}
           <header
             className="sticky top-0 z-50 border-b backdrop-blur-md"
-            style={{ borderColor: "var(--border)", background: "var(--nav-bg)" }}
+            style={{
+              borderColor: "var(--border)",
+              background: "var(--nav-bg)",
+            }}
           >
             <div className="max-w-2xl mx-auto px-5 h-12 flex items-center justify-between">
               {/* Logo */}

@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useEffect } from "react";
 import { ArrowUpRight, Github } from "lucide-react";
+import Link from "next/link";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 interface ProjectLinkProps {
   href: string;
@@ -22,12 +22,32 @@ export default function ProjectLink({ href, label }: ProjectLinkProps) {
 
   // Light mode uses a more restrained palette so text stays readable
   const idle = isDark
-    ? { bg: "rgba(34,197,94,0.07)", border: "rgba(34,197,94,0.2)",  color: "#4ade80", shadow: "none" }
-    : { bg: "rgba(22,163,74,0.08)",  border: "rgba(22,163,74,0.3)",  color: "#15803d", shadow: "none" };
+    ? {
+        bg: "rgba(34,197,94,0.07)",
+        border: "rgba(34,197,94,0.2)",
+        color: "#4ade80",
+        shadow: "none",
+      }
+    : {
+        bg: "rgba(22,163,74,0.08)",
+        border: "rgba(22,163,74,0.3)",
+        color: "#15803d",
+        shadow: "none",
+      };
 
   const active = isDark
-    ? { bg: "rgba(34,197,94,0.14)", border: "rgba(34,197,94,0.5)",  color: "#86efac", shadow: "0 4px 12px rgba(34,197,94,0.15)" }
-    : { bg: "rgba(22,163,74,0.10)",  border: "rgba(22,163,74,0.45)", color: "#15803d", shadow: "0 3px 8px rgba(22,163,74,0.12)" };
+    ? {
+        bg: "rgba(34,197,94,0.14)",
+        border: "rgba(34,197,94,0.5)",
+        color: "#86efac",
+        shadow: "0 4px 12px rgba(34,197,94,0.15)",
+      }
+    : {
+        bg: "rgba(22,163,74,0.10)",
+        border: "rgba(22,163,74,0.45)",
+        color: "#15803d",
+        shadow: "0 3px 8px rgba(22,163,74,0.12)",
+      };
 
   const s = hovered ? active : idle;
 

@@ -24,7 +24,6 @@
   --footer-copy: #2e2e2e;
   --section-label: #6b6b6b;
   --timeline-dot: #2a2a2a;
-  --timeline-dot-hover: #555;
   --timeline-line: #1a1a1a;
   --logo-dot: #ffffff;
 }
@@ -52,7 +51,6 @@
   --footer-copy: #cccccc;
   --section-label: #999999;
   --timeline-dot: #d0d0d0;
-  --timeline-dot-hover: #999999;
   --timeline-line: #e5e5e5;
   --logo-dot: #111111;
 }
@@ -74,12 +72,14 @@ body {
   background-color: var(--bg);
   color: var(--fg);
   font-family: var(--font-geist-sans);
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 /* Grain texture overlay */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
@@ -92,10 +92,19 @@ body::before {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
 
 /* Section label */
 .section-label {
@@ -109,25 +118,55 @@ body::before {
 
 /* Fade-in animation */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.animate-fade-in-up { animation: fadeInUp 0.6s ease forwards; }
-.animate-delay-100 { animation-delay: 0.1s; opacity: 0; }
-.animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
-.animate-delay-300 { animation-delay: 0.3s; opacity: 0; }
-.animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
-.animate-delay-500 { animation-delay: 0.5s; opacity: 0; }
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+.animate-delay-200 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+.animate-delay-300 {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+.animate-delay-400 {
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+.animate-delay-500 {
+  animation-delay: 0.5s;
+  opacity: 0;
+}
 
 /* Status dot pulse */
 @keyframes pulse-green {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
-.status-dot { animation: pulse-green 2s ease-in-out infinite; }
+.status-dot {
+  animation: pulse-green 2s ease-in-out infinite;
+}
 
 /* Hover card */
-.hover-card { transition: border-color 0.2s ease, background-color 0.2s ease; }
+.hover-card {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
 .hover-card:hover {
   border-color: var(--border-hover);
   background-color: var(--bg-card-hover);
@@ -145,7 +184,9 @@ body::before {
   font-family: var(--font-geist-mono);
   color: var(--tag-color);
   background: var(--tag-bg);
-  transition: border-color 0.15s, color 0.15s;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
 }
 .tech-tag:hover {
   border-color: var(--border-hover);
